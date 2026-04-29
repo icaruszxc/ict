@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Breaking Buns</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #1f3d3a;
+    }
+
+ 
+    nav {
+        background: #f4b400;
+        padding: 12px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: bold;
+    }
+
+    .logo img {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+    }
+
+    nav .menu a {
+        margin: 0 15px;
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+    }
+
+    .order-btn {
+        background: #2ecc71;
+        padding: 8px 18px;
+        border-radius: 20px;
+        color: white;
+        text-decoration: none;
+    }
+
+    
+    .container {
+        padding: 40px;
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    h1 {
+        color: #f4b400;
+    }
+
+  
+    .contact-box {
+        background: rgba(255,255,255,0.15);
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 15px;
+        line-height: 1.5;
+    }
+
+    .contact-box p {
+        margin: 5px 0; 
+    }
+
+    
+    .delivery {
+        margin-top: 15px;
+        display: flex;
+        gap: 10px;
+    }
+
+    .grab {
+        background: #00b14f;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .foodpanda {
+        background: #e91e63;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+   
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .card {
+        background: #f5f5dc;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .card h3 {
+        margin-top: 0;
+        color: #1f3d3a;
+    }
+
+    .btn-yellow {
+        background: #f4b400;
+        padding: 8px 15px;
+        border-radius: 20px;
+        text-decoration: none;
+        color: black;
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+        .grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+
+<nav>
+    <div class="logo">
+        
+        <img src="/Users/angeloperalta/Downloads/ict htmls\breaking bad1.jpg"" alt="logo">
+        <span>Breaking Buns</span>
+    </div>
+
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="product.html">Products<a>
+        <a href="promos.html">Promos</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <a href="#" class="order-btn">Order Now</a>
+</nav>
+
+
+<div class="container">
+    <h1>Contact Us</h1>
+
+    <div class="contact-box">
+        <h3>Contact Details</h3>
+        <p>If you have concerns or feedback, contact us through:</p>
+        <p><strong>feedback@breakingbuns.com</strong></p>
+        <p>By sending your feedback, you agree to our privacy policy.</p>
+    </div>
+
+    <div class="delivery">
+        <a href="https://www.food.grab.com/" class="grab">GrabFood</a>
+        <a href="https://www.foodpanda.ph/" class="foodpanda">FoodPanda</a>
+    </div>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Rate Our Store</h3>
+            <p>Tell us about your experience.</p>
+            <a href="#" class="btn-yellow">Rate Here</a>
+        </div>
+
+        <div class="card">
+            <h3>Store Directory</h3>
+            <p>See list of our stores.</p>
+            <a href="#" class="btn-yellow">See Store List</a>
+        </div>
+
+        <div class="card">
+            <h3>Follow Us</h3>
+            <p>Instagram: @breakingbuns</p>
+        </div>
+
+        <div class="card">
+            <h3>Main Branch Address</h3>
+            <p>Del Remedio, San Pablo City, Philippines</p>
+        </div>
+    </div>
+</div>
+
+</body>
