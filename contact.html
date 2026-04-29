@@ -14,12 +14,18 @@
 
  
     nav {
-        background: #f4b400;
-        padding: 12px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+    background: #f4b400;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between; /* Keeps logo left, menu center, button right */
+    align-items: center;
+    
+    /* --- THE FIXES --- */
+    max-width: 900px;      /* Limits the width of the bar */
+    margin: 25px auto;     /* Centers the bar and adds space at the top */
+    border-radius: 50px;   /* Makes the ends round */
+    border: 2px solid #333; /* Optional: adds definition */
+}
 
     .logo {
         display: flex;
@@ -34,12 +40,27 @@
         border-radius: 50%;
     }
 
-    nav .menu a {
-        margin: 0 15px;
-        text-decoration: none;
-        color: black;
-        font-weight: bold;
-    }
+   nav .menu a {
+    margin: 0 10px; 
+    text-decoration: none;
+    font-weight: bold;
+    
+  
+    background-color: #093426; 
+    color: white;              
+    padding: 10px 25px;        
+    border-radius: 50px;       
+    
+    
+    transition: 0.3s;
+    display: inline-block;
+}
+
+
+nav .menu a:hover {
+    background-color: #F8F5E6; 
+    color: #093426;           
+}
 
     .order-btn {
         background: #2ecc71;
@@ -146,8 +167,8 @@
     </div>
 
     <div class="menu">
-        <a href="index.html">Home</a>
-        <a href="product.html">Products<a>
+        <a href="ictweb.html">Home</a>
+       <a href="product.html">Products</a>
         <a href="promos.html">Promos</a>
         <a href="contact.html">Contact</a>
     </div>
