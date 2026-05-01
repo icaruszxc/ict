@@ -161,6 +161,38 @@ footer i {
   margin-right: 5px;
 }
 
+@media (max-width: 768px) {
+  .navbar {
+    max-width: 95%;      /* Make the bar wider on small screens */
+    margin-top: -50px;    /* Pull it up LESS than the desktop version */
+    padding: 10px;
+  }
+
+  .navbar ul {
+    gap: 10px;           /* Reduce space between buttons so they fit in one row */
+  }
+
+  .navbar a {
+    padding: 8px 15px;   /* Smaller buttons for smaller fingers */
+    font-size: 14px;
+  }
+
+  .logo-img {
+    width: 80%;          /* Shrink the logo so it doesn't hit the edges */
+  }
+  
+  .main-content {
+    width: 90%;
+    padding: 20px;       /* Smaller padding so the text has more room */
+  }
+
+  footer .social-links p {
+    display: flex;
+    flex-direction: column; /* Stack them vertically on phones */
+    gap: 10px;
+  }
+
+}
 
 
   </style>
@@ -173,7 +205,7 @@ footer i {
   <nav class="navbar">
     <ul>
       <li><a href="#">Promos</a></li>
-      <li><a href="#">Products</a></li>
+      <li><a href="products.html">Products</a></li>
       <li><a href="contact.html">Contacts</a></li>
     </ul>
   </nav>

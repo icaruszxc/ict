@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products - Breaking Buns</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #093426;
+      background-image: url('bgside.png');
+      background-attachment: fixed;
+      background-position: center top;
+      background-size: cover;
+    }
+
+    header {
+      background-image: url('burgerbackground.jpg'); 
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      padding-top: 60px;
+      padding-bottom: 80px; 
+      text-align: center;
+      box-shadow: inset 0 -100px 50px -70px #093426;
+    }
+
+    .logo-img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .navbar {
+      background-color: #F6B102;
+      max-width: 600px;
+      margin: -110px auto 0 auto;
+      border: 2px solid #333;
+      padding: 15px;
+      border-radius: 50px;
+      position: relative; 
+      z-index: 10;
+    }
+
+    .navbar ul {
+      list-style-type: none;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 40px;
+    }
+
+    .navbar a {
+      font-family: Copperplate, serif;
+      font-size: 16px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      background-color: #093426;
+      border-radius: 70px;
+      padding: 8px 40px;
+      border: 1px solid #333;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .navbar a:hover {
+      background-color: #F7EDD4;
+      color: #093426;
+    }
+
+    /* CHANGED: This now covers the full width (Blue Line Area) */
+    .main-content {
+      max-width: 100%; /* Removes the 800px limit to fill the blue line */
+      margin: 0; /* Touches the edges */
+      background-color: rgba(9, 52, 38, 0.85); /* Semi-transparent green silhouette */
+      text-align: center;
+      padding: 60px 20px;
+      min-height: 600px; /* Ensures the box stays long even if empty */
+    }
+
+    .product-grid {
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: center;
+       gap: 30px;
+       max-width: 1200px;
+       margin: 0 auto;
+    }
+
+    footer {
+      background: linear-gradient(to top, #093426 70%, rgba(9, 52, 38, 0) 100%);
+      padding: 40px 10px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #F7EDD4;
+    }
+
+    .social-links a {
+      color: #F6B102;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .navbar { max-width: 95%; margin-top: -50px; }
+      .navbar ul { gap: 10px; }
+      .navbar a { padding: 8px 15px; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="breaking bad1.png" class="logo-img" alt="Breaking Buns Logo" width="500">
+  <nav class="navbar">
+    <ul>
+      <li><a href="ictweb.html">Home</a></li>
+    <li><a href="#">Promos</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="contact.html">Contacts</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="main-content">
+  <h2 style="color: #F6B102; font-family: Arial Black; font-size: 40px;">OUR PRODUCTS</h2>
+  
+  <!-- This is where your menu items will go -->
+  <div class="product-grid">
+    <!-- Example Product Holder -->
+    <p style="color: white;">Product listings coming soon...</p>
+  </div>
+</main>
+
+<footer>
+  <div class="social-links">
+    <p>Follow us on our: 
+      <a href="#"><i class="fab fa-instagram"></i> Instagram</a>, 
+      <a href="#"><i class="fab fa-facebook"></i> Facebook</a>, 
+      <a href="#"><i class="fab fa-x-twitter"></i> X</a>
+    </p>
+  </div>
+  <p>&copy; 2026 Breaking Buns. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
