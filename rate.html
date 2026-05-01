@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breaking Buns Survey</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #F5EBDC; /* Background from image */
+            margin: 0;
+            color: #502314;
+        }
+
+        /* Top Header Area (green */
+        .top-banner {
+            background-color: #093426;
+            padding: 10px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .top-banner img {
+            height: 60px;
+        }
+
+        .lang-select {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        /* Navigation */
+        nav {
+            background: #F6B102;
+            padding: 15px 10%;
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #502314;
+            font-weight: bold;
+            margin: 0 20px;
+            text-transform: uppercase;
+        }
+
+        /* Main Form Container */
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: transparent;
+            padding: 20px;
+        }
+
+        .receipt-example {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .receipt-example img {
+            max-width: 300px;
+            border: 1px solid #ccc;
+            background: white;
+            padding: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        input[type="text"], 
+        input[type="date"], 
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        /* Radio List Styling */
+        .radio-list {
+            background: #EDE0D4;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .radio-option {
+            padding: 12px 15px;
+            border-bottom: 1px solid #D9CBBF;
+            display: flex;
+            align-items: center;
+        }
+
+        .radio-option:last-child {
+            border-bottom: none;
+        }
+
+        .radio-option input {
+            margin-right: 15px;
+        }
+
+        /* Submit Button */
+        .btn-next {
+            background-color: #006A31; /* Green button from image */
+            color: white;
+            padding: 12px 60px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto;
+        }
+
+        .required-note {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-banner">
+        <img src="/Users/angeloperalta/ict/ict/breaking bad1.png" alt="Logo">
+        <div class="lang-select">English ⌵</div>
+    </div>
+
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="product.html>Products</a>
+        <a href="promos.html">Promos</a>
+        <a href="contact.html">Contacts</a>
+    </nav>
+
+    <div class="container">
+        
+        <div class="receipt-example">
+            <img src="recept.png" alt="Example Receipt">
+        </div>
+
+        <div class="required-note">➔ Required</div>
+        
+        <div class="form-group">
+            <label>Please enter the Breaking Buns restaurant number located on the front of your receipt.</label>
+            <input type="text">
+        </div>
+
+        <div class="form-group">
+            <label>Please enter the date of your visit:</label>
+            <input type="date">
+        </div>
+
+        <div class="form-group">
+            <label>Time of your visit:</label>
+            <select>
+                <option>- Select -</option>
+                <option>Morning</option>
+                <option>Afternoon</option>
+                <option>Evening</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>How did you place the order?</label>
+            <div class="radio-list">
+                <div class="radio-option"><input type="radio" name="method"> Kiosk</div>
+                <div class="radio-option"><input type="radio" name="method"> Front Counter</div>
+                <div class="radio-option"><input type="radio" name="method"> Mobile Order from Table</div>
+                <div class="radio-option"><input type="radio" name="method"> Mobile Order Pick up</div>
+                <div class="radio-option"><input type="radio" name="method"> Over the Phone with a Breaking Buns Representative</div>
+                <div class="radio-option"><input type="radio" name="method"> Drive Through</div>
+                <div class="radio-option"><input type="radio" name="method"> Through a Delivery Partner (e.g Grab, FoodPanda)</div>
+                <div class="radio-option"><input type="radio" name="method"> Delivery Breaking Buns App</div>
+            </div>
+        </div>
+
+        <button class="btn-next">Next</button>
+
+    </div>
+
+</body>
+</html>
