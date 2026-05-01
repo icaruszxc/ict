@@ -6,106 +6,164 @@
   <title>Breaking Buns</title>
 
   <style>
+    body {
+      background-color: #093426;
+      color: white;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif; /* Fallback font */
+    }
+
+    header {
+  /* Use your burger background image here */
+  background-image: url('burgerbackground.jpg'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   
- body {
-    background-color: #093426;
-    color: white; 
-    margin: 0;
-    padding: 20px;
-  }
-  
-    .navbar {
-	background-color:#F6B102;
-  max-width: 750px;    
-  margin: 0 auto;     
-  border: 2px solid #333;
-  padding: 10px;
-  border-radius: 50px;
-  margin-top: -90px;
+  /* This controls how far down the image goes */
+  padding-bottom: -1px; 
+  text-align: center;
 }
+
+    header {
+      text-align: center;
+      padding-top: 80px;
+    }
+
+    .logo-img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .navbar {
+      background-color: #F6B102;
+      max-width: 600px;
+      margin: -50px auto 0 auto; /* Adjusted margin to overlap nicely */
+      border: 2px solid #333;
+      padding: 15px;
+      border-radius: 50px;
+      position: relative; /* Keeps it above other elements */
+      margin-top: -110px;
+      z-index: 10;
+    }
 
     .navbar ul {
       list-style-type: none;
-	  justify-content: center;
+      justify-content: center;
       margin: 0;
       padding: 0;
       display: flex;
-      gap: 70px;
+      gap: 40px; /* Reduced gap for better mobile fit */
     }
 
     .navbar a {
-  font-family: Copperplate;
-  font-size: 18px;
-  text-decoration: none;
-  color: white; 
-  font-weight: bold;
-  background-color: #093426 ; 
-  border-radius: 70px;      
-  padding: 10px 30px;      
-  border: 1px solid #333; 
-  transition: 0.2s;   
-  display: inline-block;    
-}
+      font-family: Copperplate, "Copperplate Gothic Light", serif;
+      font-size: 18px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      background-color: #093426;
+      border-radius: 70px;
+      padding: 8px 45px;
+      border: 1px solid #333;
+      transition: 0.3s;
+      display: inline-block;
+    }
 
     .navbar a:hover {
-      background-color:#F7EDD4;
+      background-color: #F7EDD4;
       color: #093426;
-      border-radius: 4px;
     }
-	
-	.b-pic {
-  position: absolute;
-  top: 400px;   
-  left: -60px;   
-  z-index: -1;  
+
+    /* Burger Side Decorations */
+    .hero-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 5%;
+      margin-top: 50px;
+    }
+
+    .side-burger {
+      width: 300px; /* Scaled down slightly for better fit */
+      height: auto;
+    }
+
+    .main-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 20px;
+    }
+
+    section h2 {
+  margin-top: 100px;       /* Controls the space above the title */
+  color: #F6B102;         /* Changes the text color to the yellow/gold */
+  font-family: Copperplate, serif; 
+  text-transform: uppercase; /* Makes it all caps like your image */
+  letter-spacing: 2px;    /* Adds a little space between letters for a cleaner look */
 }
 
-.b-pic1 {
-  position: absolute;
-  top: 400px;   
-  left: 1070px;   
-  z-index: -1;  
-}
+    footer {
+      padding: 40px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #F7EDD4;
+    }
+
+    /* Small Screen Adjustments */
+    @media (max-width: 768px) {
+      .hero-section {
+        flex-direction: column;
+      }
+      .side-burger {
+        display: none; /* Hide side burgers on phones to save space */
+      }
+    }
   </style>
 </head>
 <body>
+
 <header>
-<center>
-<img src="breaking bad1.png" height="450" width="500">
-</center>
-<nav class="navbar">
-  <ul>
-    <li><a href="#">Promos</a></li>
-    <li><a href="#">Products</a></li>
-    <li><a href="contact.html">Contacts</a></li>
-  </ul>
-</nav>
+  <img src="breaking bad1.png" class="logo-img" alt="Breaking Buns Logo" width="500">
+  
+  <nav class="navbar">
+    <ul>
+      <li><a href="#">Promos</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="contact.html">Contacts</a></li>
+    </ul>
+  </nav>
 </header>
 
-<img src="burger1.png" class="b-pic" height="500" width="500"</img>
-<img src="burger2.png" class="b-pic1" height="500" width="500"</img>
+<div class="hero-section">
+  <img src="burger1.png" class="side-burger" alt="Delicious Burger Left">
+  
+  <main class="main-content">
+    <section>
+      <h2 style="margin-top: 1px; font-size: 30px">ABOUT US</h2>
+      <p>Breaking Buns is a modern burger brand created for people who love bold flavors, satisfying meals, and great moments shared with friends and family.</p>
+    </section>
 
+    <section>
+      <h2>VISION</h2>
+      <p>To become a well-loved burger brand known for serving delicious, high-quality, and affordable burgers that bring people together and create enjoyable dining experiences in every community.</p>
+    </section>
 
-   <main>
-	<center>
-        <section>
-	
-            <h2 style="margin-top: 100px;">About Us</h2>
-            <p> Breaking Buns is a modern burger brand created for people who love bold flavors, satisfying meals, and great moments shared with friends and family.</p
-            
-        </section>
-         <section>
-           <h2 style="margin-top: 100px;">VISION</h2>
-            <p> To become a well-loved burger brand known for serving delicious, high-quality, and affordable burgers that bring people together and create enjoyable dining experiences in every community.</p
-         </section>
-         <section>
-           <h2 style="margin-top: 100px;">MISSION</h2>
-            <p> At Breaking Buns, our mission is to provide freshly prepared burgers made with quality ingredients and great flavor. We aim to deliver excellent service, maintain high standards of food quality, and create a welcoming place where customers can enjoy satisfying meals with friends and family.<br> We are committed to making every bite memorable while keeping our food accessible and affordable for everyone..</p>
-        </section>
-		<center>
-    </main>
-    <footer>
-        <p><center>&copy; 2026 Breaking Buns. All rights reserved.</center></p>
-    </footer>
+    <section>
+      <h2>MISSION</h2>
+      <p>At Breaking Buns, our mission is to provide freshly prepared burgers made with quality ingredients and great flavor. We aim to deliver excellent service, maintain high standards of food quality, and create a welcoming place where customers can enjoy satisfying meals with friends and family.</p>
+      <p>We are committed to making every bite memorable while keeping our food accessible and affordable for everyone.</p>
+    </section>
+  </main>
+
+  <img src="burger2.png" class="side-burger" alt="Delicious Burger Right">
+</div>
+
+<footer>
+  <p>&copy; 2026 Breaking Buns. All rights reserved.</p>
+</footer>
+
 </body>
 </html>
