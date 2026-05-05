@@ -18,27 +18,66 @@
   }
 }
 
-.product-info-box {
-       border: 2px solid #F6B102; /* The mustard-yellow border */
-       border-radius: 15px;      /* Rounded corners for the text box */
-       padding: 15px;            /* Space between text and border */
-       margin-top: 15px;         /* Space between image and text box */
-       background-color: rgba(0, 0, 0, 0.2); /* Subtle dark tint to make text pop */
+.quantity-selector {
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       background-color: #093426; /* Dark green bar */
+       border: 2px solid #F6B102;  /* yellow border */
+       border-radius: 50px;
+       margin-top: 15px;
+       overflow: hidden;
+       width: 100%;
     }
 
-    .product-item h3 {
+    .qty-btn {
+       background: none;
+       border: none;
        color: #F6B102;
-       font-family: "Arial Black", sans-serif;
-       margin: 0 0 5px 0;        /* Tighten spacing between title and p */
-       font-size: 1.2rem;
+       font-size: 20px;
+       font-weight: bold;
+       padding: 10px 20px;
+       cursor: pointer;
+       transition: 0.3s;
+       width: 33.33%;
     }
 
-    .product-item p {
-       color: #F7EDD4;
-       font-family: Georgia, serif;
-       font-size: 0.9rem;
-       margin: 0;
+    .qty-btn:hover {
+       background-color: #F6B102;
+       color: #093426;
     }
+
+    .qty-number {
+       color: white;
+       font-family: "Arial Black", sans-serif;
+       font-size: 18px;
+       width: 33.33%;
+       text-align: center;
+       border-left: 1px solid rgba(246, 177, 2, 0.3);
+       border-right: 1px solid rgba(246, 177, 2, 0.3);
+    }
+
+.product-info-box {
+   border: 2px solid #093426;       /* Changed border to Green to contrast yellow */
+   border-radius: 15px;
+   padding: 15px;
+   margin-top: 15px;
+   background-color: #F6B102;      /* Set background to Mustard Yellow */
+}
+
+.product-info-box h3 {
+   color: #093426;                 /* Set Title font to Green */
+   font-family: "Arial Black", sans-serif;
+   margin: 0 0 5px 0;
+   font-size: 1.2rem;
+}
+
+.product-info-box p {
+   color: #000000;                 /* Changed to Black for better readability on yellow */
+   font-family: Georgia, serif;
+   font-size: 0.9rem;
+   margin: 0;
+}
 
 .section-title-box {
         display: inline-block;    /* Makes the box fit the text size */
@@ -171,19 +210,6 @@
        margin-bottom: 15px;
     }
 
-    .product-item h3 {
-       color: #F6B102;
-       font-family: "Arial Black", sans-serif;
-       margin: 10px 0;
-    }
-
-    .product-item p {
-       color: #F7EDD4;
-       font-family: Georgia, serif;
-       font-size: 14px;
-       line-height: 1.4;
-    }
-
     footer {
   /* This creates a fade from the side burgers into the solid green footer */
   background: linear-gradient(to top, #093426 70%, rgba(9, 52, 38, 0) 100%);
@@ -254,6 +280,11 @@ footer i {
       <h3>Classic Burger</h3>
       <p>A timeless favorite with lettuce, tomato, and our special sauce.</p>
        </div>
+       <div class="quantity-selector">
+        <button class="qty-btn">-</button>
+        <div class="qty-number">1</div>
+        <button class="qty-btn">+</button>
+      </div>
     </div>
 
     <!-- Item 2 -->
@@ -263,6 +294,11 @@ footer i {
       <h3>Cheese Lover's</h3>
       <p>Loaded with cheddar, Swiss, and mozzarella cheeses.</p>
        </div>
+       <div class="quantity-selector">
+        <button class="qty-btn">-</button>
+        <div class="qty-number">1</div>
+        <button class="qty-btn">+</button>
+      </div>
     </div>
 
     <!-- Item 3 -->
@@ -272,6 +308,11 @@ footer i {
       <h3>Spicy Jalapeño</h3>
       <p>Packed with jalapeños and spicy mayo for a fiery kick.</p>
        </div>
+       <div class="quantity-selector">
+        <button class="qty-btn">-</button>
+        <div class="qty-number">1</div>
+        <button class="qty-btn">+</button>
+      </div>
     </div>
 
     <!-- Item 4 -->
@@ -281,6 +322,11 @@ footer i {
       <h3>Double Stack</h3>
       <p>Two premium beef patties for the ultimate hunger.</p>
        </div>
+       <div class="quantity-selector">
+        <button class="qty-btn">-</button>
+        <div class="qty-number">1</div>
+        <button class="qty-btn">+</button>
+      </div>
     </div>
 
     <!-- Item 5 -->
@@ -289,7 +335,12 @@ footer i {
       <div class="product-info-box">
       <h3>Bacon Bliss</h3>
       <p>Crispy bacon strips paired with melted smoky cheese.</p>
-       </div>
+    </div>
+    <div class="quantity-selector">
+        <button class="qty-btn">-</button>
+        <div class="qty-number">1</div>
+        <button class="qty-btn">+</button>
+      </div>
     </div>
 
     <!-- Item 6 -->
@@ -299,6 +350,12 @@ footer i {
       <h3>The "Heisenberg"</h3>
       <p>Our signature secret recipe. Say our name.</p>
     </div>
+    <div class="quantity-selector">
+        <button class="qty-btn">-</button>
+        <div class="qty-number">1</div>
+        <button class="qty-btn">+</button>
+      </div>
+
   </div>
 
 </main>
