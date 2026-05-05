@@ -7,7 +7,98 @@
   <title>Products - Breaking Buns</title>
 
   <style>
+     @keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Starts slightly lower */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);    /* Ends at original position */
+  }
+}
+
+.quantity-selector {
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       background-color: #093426; /* Dark green bar */
+       border: 2px solid #F6B102;  /* yellow border */
+       border-radius: 50px;
+       margin-top: 15px;
+       overflow: hidden;
+       width: 100%;
+    }
+
+    .qty-btn {
+       background: none;
+       border: none;
+       color: #F6B102;
+       font-size: 20px;
+       font-weight: bold;
+       padding: 10px 20px;
+       cursor: pointer;
+       transition: 0.3s;
+       width: 33.33%;
+    }
+
+    .qty-btn:hover {
+       background-color: #F6B102;
+       color: #093426;
+    }
+
+    .qty-number {
+       color: white;
+       font-family: "Arial Black", sans-serif;
+       font-size: 18px;
+       width: 33.33%;
+       text-align: center;
+       border-left: 1px solid rgba(246, 177, 2, 0.3);
+       border-right: 1px solid rgba(246, 177, 2, 0.3);
+    }
+
+.product-info-box {
+   border: 2px solid #093426;       /* Changed border to Green to contrast yellow */
+   border-radius: 15px;
+   padding: 15px;
+   margin-top: 15px;
+   background-color: #F6B102;      /* Set background to Mustard Yellow */
+   p.price-tag {
+    font-size: 1.1rem;
+   }
+}
+
+.product-info-box h3 {
+   color: #093426;                 /* Set Title font to Green */
+   font-family: "Arial Black", sans-serif;
+   margin: 0 0 5px 0;
+   font-size: 1.2rem;
+}
+
+.product-info-box p {
+   color: #000000;                 /* Changed to Black for better readability on yellow */
+   font-family: Georgia, serif;
+   font-size: 0.9rem;
+   margin: 0;
+}
+
+.section-title-box {
+        display: inline-block;    /* Makes the box fit the text size */
+        background-color:  #F6B102; /* Dark green background */
+        color: #093426;           /* Mustard yellow text */
+        font-family: 'Arial Black', Gadget, sans-serif;
+        font-size: 32px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 15px 60px;       /* Gives it that wide button shape */
+        border-radius: 70px;      /* Rounds the corners perfectly */
+        border: 2px solid #333;   /* Dark border like the navbar */
+        box-shadow: 0 6px 0px rgba(0,0,0,0.4); /* The "clicky" bottom shadow */
+        margin-bottom: 50px;      /* Space before the burgers start */
+    }
+
     body {
+      animation: fadeInUp 0.50s ease-out;
       margin: 0;
       padding: 0;
       background-color: #093426;
@@ -37,6 +128,8 @@
     }
 
     .navbar {
+      animation: fadeInUp 1s ease-out both;
+      animation-delay: 0.2s; 
       background-color: #F6B102;
       max-width: 750px;
       margin: -110px auto 0 auto;
@@ -88,12 +181,45 @@
 
     .product-grid {
        display: flex;
-       flex-wrap: wrap;
+       flex-wrap: wrap; /* Allows burgers to move to the next row */
        justify-content: center;
        gap: 30px;
        max-width: 1200px;
        margin: 0 auto;
+       padding: 40px 20px;
     }
+
+    .product-item {
+       background-color: rgba(9, 52, 38, 0.95); /* Matches your brand green */
+       border: 2px solid #F6B102; /* Brand yellow border */
+       border-radius: 20px;
+       padding: 20px;
+       width: 280px; /* Fixed width makes them sit horizontally */
+       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+       transition: transform 0.3s ease;
+       text-align: center;
+    }
+
+    .product-item:hover {
+       transform: translateY(-10px); /* Subtle lift effect */
+       border-color: white;
+    }
+
+    .product-item img {
+       width: 100%;
+       aspect-ratio: 1/1; /* Keeps your square images perfect */
+       object-fit: cover;
+       border-radius: 15px;
+       margin-bottom: 15px;
+    }
+
+    .price-tag {
+    color: #093426; /* Dark green to match the title */
+    font-family: "Arial Black", sans-serif;
+    font-size: 1.9rem;
+    margin-top: 10px; /* Space between description and price */
+    font-weight: bold;
+} 
 
     footer {
   /* This creates a fade from the side burgers into the solid green footer */
@@ -143,6 +269,11 @@ footer i {
 <body>
 
 <header>
+<div onclick="openCart()" style="position: absolute; top: 30px; right: 40px; cursor: pointer; color: #F6B102;">
+  <i class="fa-solid fa-cart-shopping" style="font-size: 2.5rem;"></i>
+  <span id="cartBadge" style="position: absolute; top: -5px; right: -10px; background: #e21c21; color: white; padding: 2px 8px; border-radius: 50%; font-family: 'Arial Black'; font-size: 0.9rem; display: none;">0</span>
+</div>
+
   <img src="breaking bad1.png" class="logo-img" alt="Breaking Buns Logo" width="500">
   <nav class="navbar">
     <ul>
@@ -153,16 +284,135 @@ footer i {
     </ul>
   </nav>
 </header>
-
-<main class="main-content">
-  <h2 style="color: #F6B102; font-family: Arial Black; font-size: 40px;">OUR PRODUCTS</h2>
+ 
+  <main class="main-content">
+  <h2 class="section-title-box">OUR PRODUCTS</h2>
   
-  <!-- This is where your menu items will go -->
   <div class="product-grid">
-    <!-- Example Product Holder -->
-    <p style="color: white;">Product listings coming soon...</p>
+    <!-- Item 1 -->
+   <div class="product-item">
+    <img src="burger1.png" alt="Classic Burger">
+    <div class="product-info-box">
+        <h3>The Crystal Classic</h3>
+        <p>Double smashed patties and melted cheddar. Simple, clean, and highly addictive.</p> <br>
+        <p class="price-tag">₱ 290.00</p> 
+    </div>    
+    <div class="quantity-selector">
+        <button class="qty-btn" onclick="changeQty(this, -1)">-</button>
+        <div class="qty-number">0</div>
+        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+    </div>
+<button class="order-btn" onclick="addtocart(this)" style="background-color: #F6B102; color: #093426; font-family: 'Arial Black'; text-transform: uppercase; border: 2px solid #333; border-radius: 50px; padding: 12px; margin-top: 15px; cursor: pointer; width: 100%; box-shadow: 0 4px 0px rgba(0,0,0,0.3);">
+  Add to Cart
+</button>
+</div>
+
+    <!-- Item 2 -->
+    <div class="product-item">
+      <img src="burger2.png" alt="Cheese Burger">
+      <div class="product-info-box">
+      <h3>The Batch One</h3>
+      <p>A thick-cut beef smothered in a heavy dose of liquid cheddar and shredded lettuce.</p> <br>
+      <p class="price-tag">₱ 245.00</p> 
+       </div>
+       <div class="quantity-selector">
+  <button class="qty-btn" onclick="changeQty(this, -1)">-</button>
+  <div class="qty-number">0</div>
+  <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+</div>
+<button class="order-btn" onclick="addtocart(this)" style="background-color: #F6B102; color: #093426; font-family: 'Arial Black'; text-transform: uppercase; border: 2px solid #333; border-radius: 50px; padding: 12px; margin-top: 15px; cursor: pointer; width: 100%; box-shadow: 0 4px 0px rgba(0,0,0,0.3);">
+  Add to Cart
+</button>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="product-item">
+      <img src="burger3.png" alt="Spicy Burger">
+      <div class="product-info-box">
+      <h3>The Blue Heat</h3>
+      <p>A double patties, stacked pickles, red onions, and our signature "Heisenberg" heat sauce.</p> <br>
+      <p class="price-tag">₱ 360.00</p>
+       </div>
+       <div class="quantity-selector">
+  <button class="qty-btn" onclick="changeQty(this, -1)">-</button>
+  <div class="qty-number">0</div>
+  <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+</div>
+<button class="order-btn" onclick="addtocart(this)" style="background-color: #F6B102; color: #093426; font-family: 'Arial Black'; text-transform: uppercase; border: 2px solid #333; border-radius: 50px; padding: 12px; margin-top: 15px; cursor: pointer; width: 100%; box-shadow: 0 4px 0px rgba(0,0,0,0.3);">
+  Add to Cart
+</button>
+    </div>
+
+    <!-- Item 4 -->
+    <div class="product-item">
+      <img src="burger4.png" alt="Double Burger">
+      <div class="product-info-box">
+      <h3>The Full Measure</h3>
+      <p>A massive single patty with caramelized onions and garden-fresh greens.</p> <br>
+      <p class="price-tag">₱ 310.00</p>
+       </div>
+       <div class="quantity-selector">
+  <button class="qty-btn" onclick="changeQty(this, -1)">-</button>
+  <div class="qty-number">0</div>
+  <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+</div>
+ <button class="order-btn" onclick="addtocart(this)" style="background-color: #F6B102; color: #093426; font-family: 'Arial Black'; text-transform: uppercase; border: 2px solid #333; border-radius: 50px; padding: 12px; margin-top: 15px; cursor: pointer; width: 100%; box-shadow: 0 4px 0px rgba(0,0,0,0.3);">
+  Add to Cart
+</button>
+    </div>
+
+    <!-- Item 5 -->
+    <div class="product-item">
+      <img src="burger5.png" alt="Bacon Burger">
+      <div class="product-info-box">
+      <h3>The Fried Empire</h3>
+      <p>A crispy, golden-fried chicken topped with a perfect egg and creamy ranch drizzle.</p> <br>
+      <p class="price-tag">₱ 330.00</p>
+    </div>
+    <div class="quantity-selector">
+  <button class="qty-btn" onclick="changeQty(this, -1)">-</button>
+  <div class="qty-number">0</div>
+  <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+</div>
+<button class="order-btn" onclick="addtocart(this)" style="background-color: #F6B102; color: #093426; font-family: 'Arial Black'; text-transform: uppercase; border: 2px solid #333; border-radius: 50px; padding: 12px; margin-top: 15px; cursor: pointer; width: 100%; box-shadow: 0 4px 0px rgba(0,0,0,0.3);">
+  Add to Cart
+</button>
+    </div>
+
+    <!-- Item 6 -->
+    <div class="product-item">
+      <img src="burger6.png" alt="Special Burger">
+      <div class="product-info-box">
+      <h3>The "Heisenberg"</h3>
+      <p>A juicy beef patty topped with a crispy spicy chicken fillet.</p>  <br>
+      <p class="price-tag">₱ 340.00</p>
+    </div>
+    <div class="quantity-selector">
+  <button class="qty-btn" onclick="changeQty(this, -1)">-</button>
+  <div class="qty-number">0</div>
+  <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+</div>  
+<button class="order-btn" onclick="addtocart(this)" style="background-color: #F6B102; color: #093426; font-family: 'Arial Black'; text-transform: uppercase; border: 2px solid #333; border-radius: 50px; padding: 12px; margin-top: 15px; cursor: pointer; width: 100%; box-shadow: 0 4px 0px rgba(0,0,0,0.3);">
+  Add to Cart
+</button>
   </div>
+
 </main>
+
+<!-- Order Summary Modal -->
+<div id="cartModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000;">
+  <div style="background:#093426; border:3px solid #F6B102; width:90%; max-width:400px; margin:100px auto; padding:20px; border-radius:20px; color:white; font-family:Arial, sans-serif;">
+    <h2 style="color:#F6B102; font-family:'Arial Black'; text-align:center;">YOUR ORDERS</h2>
+    <hr style="border:1px solid #F6B102;">
+    
+    <!-- This is where the list will appear -->
+    <div id="orderList" style="margin:20px 0; max-height:300px; overflow-y:auto;">
+      <p style="text-align:center;">Your cart is empty!</p>
+    </div>
+
+    <button onclick="closeCart()" style="width:100%; background:#F6B102; border:none; padding:10px; font-family:'Arial Black'; cursor:pointer; border-radius:50px;">CLOSE</button>
+  </div>
+</div>
 
 <footer>
   <div class="social-links">
@@ -174,6 +424,78 @@ footer i {
   </div>
   <p>&copy; 2026 Breaking Buns. All rights reserved.</p>
 </footer>
+
+<script>
+    let totalInCart = 0;
+let orders = []; // This list stores your burgers
+
+function addtocart(button) {
+    const productItem = button.closest('.product-item');
+    const burgerName = productItem.querySelector('h3').innerText;
+    const qtyValue = parseInt(productItem.querySelector('.qty-number').innerText);
+
+    if (qtyValue > 0) {
+        totalInCart += qtyValue;
+        
+        // Add to our order list
+        orders.push({ name: burgerName, qty: qtyValue });
+
+        // Update badge
+        const badge = document.getElementById('cartBadge');
+        badge.innerText = totalInCart;
+        badge.style.display = 'flex';
+
+        alert(burgerName + " has been added to your selection!");
+    } else {
+        alert("Please select at least 1 burger!");
+    }
+}
+
+function openCart() {
+    const modal = document.getElementById('cartModal');
+    const listDiv = document.getElementById('orderList');
+    modal.style.display = 'block';
+
+    if (orders.length === 0) {
+        listDiv.innerHTML = '<p style="text-align:center;">Your cart is empty!</p>';
+    } else {
+        // Build the list of text
+        let html = '<ul style="list-style:none; padding:0;">';
+        orders.forEach(item => {
+            html += `<li style="border-bottom:1px solid #333; padding:10px 0;">
+                        <strong>${item.qty}x</strong> ${item.name}
+                     </li>`;
+        });
+        html += '</ul>';
+        listDiv.innerHTML = html;
+    }
+}
+
+function closeCart() {
+    document.getElementById('cartModal').style.display = 'none';
+}
+
+  function changeQty(button, change) {
+    // This finds the "qty-number" div sitting right next to the button you clicked
+    const container = button.parentElement;
+    const qtyDisplay = container.querySelector('.qty-number');
+    
+    // Get the current number and turn it into a real number we can add to
+    let currentQty = parseInt(qtyDisplay.innerText);
+    
+    // Calculate the new quantity
+    let newQty = currentQty + change;
+    
+    // Safety check: don't let the quantity go below 0
+    if (newQty < 0) {
+      newQty = 0;
+    }
+    
+    // Update the text on the screen
+    qtyDisplay.innerText = newQty;
+
+  }
+</script>
 
 </body>
 </html>
