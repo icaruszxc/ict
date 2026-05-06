@@ -533,12 +533,15 @@ footer i {
             listDiv.innerHTML = '<p style="text-align:center;">Your cart is empty!</p>';
             printBtn.style.display = 'none';
         } else {
-            let html = '<ul style="list-style:none; padding:0;">';
-            orders.forEach(item => {
-                html += `<li style="border-bottom:1px solid rgba(246,177,2,0.2); padding:10px 0; color:white;">
-                            <strong>${item.qty}x</strong> ${item.name}
-                         </li>`;
-            });
+             let html = '<ul style="list-style:none; padding:0;">';
+           orders.forEach(item => {
+    // This part checks if the name contains "(Promo)" and colors it yellow
+    let highlightedName = item.name.replace("(Promo)", '<span style="font-family: \'Arial Black\', sans-serif; font-size: 0.85rem;">(PROMO)</span>');
+    
+    html += `<li style="border-bottom:1px solid rgba(246,177,2,0.2); padding:10px 0; color:white;">
+                <strong>${item.qty}x</strong> ${highlightedName}
+             </li>`;
+});
             html += '</ul>';
             listDiv.innerHTML = html;
             printBtn.style.display = 'block';

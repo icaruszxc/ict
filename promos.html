@@ -7,23 +7,17 @@
   <title>Products - Breaking Buns</title>
 
   <style>
-     @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px); /* Starts slightly lower */
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);    /* Ends at original position */
-  }
-}
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-.quantity-selector {
+    .quantity-selector {
        display: flex;
        align-items: center;
        justify-content: space-between;
-       background-color: #093426; /* Dark green bar */
-       border: 2px solid #F6B102;  /* yellow border */
+       background-color: #093426;
+       border: 2px solid #F6B102;
        border-radius: 50px;
        margin-top: 15px;
        overflow: hidden;
@@ -57,44 +51,46 @@
        border-right: 1px solid rgba(246, 177, 2, 0.3);
     }
 
-.product-info-box {
-   border: 2px solid #093426;       /* Changed border to Green to contrast yellow */
-   border-radius: 15px;
-   padding: 15px;
-   margin-top: 15px;
-   background-color: #F6B102;      /* Set background to Mustard Yellow */
-   p.price-tag {
-    font-size: 1.1rem;
-   }
-}
+    .product-info-box {
+       border: 2px solid #093426;
+       border-radius: 15px;
+       padding: 15px;
+       margin-top: 15px;
+       background-color: #F6B102;
+    }
 
-.product-info-box h3 {
-   color: #093426;                 /* Set Title font to Green */
-   font-family: "Arial Black", sans-serif;
-   margin: 0 0 5px 0;
-   font-size: 1.2rem;
-}
+    /* Fixed Nested CSS Error here */
+    .product-info-box p.price-tag {
+       font-size: 1.1rem;
+    }
 
-.product-info-box p {
-   color: #000000;                 /* Changed to Black for better readability on yellow */
-   font-family: Georgia, serif;
-   font-size: 0.9rem;
-   margin: 0;
-}
+    .product-info-box h3 {
+       color: #093426;
+       font-family: "Arial Black", sans-serif;
+       margin: 0 0 5px 0;
+       font-size: 1.2rem;
+    }
 
-.section-title-box {
-        display: inline-block;    /* Makes the box fit the text size */
-        background-color:  #F6B102; /* Dark green background */
-        color: #093426;           /* Mustard yellow text */
+    .product-info-box p {
+       color: #000000;
+       font-family: Georgia, serif;
+       font-size: 0.9rem;
+       margin: 0;
+    }
+
+    .section-title-box {
+        display: inline-block;
+        background-color:  #F6B102;
+        color: #093426;
         font-family: 'Arial Black', Gadget, sans-serif;
         font-size: 32px;
         text-transform: uppercase;
         letter-spacing: 2px;
-        padding: 15px 60px;       /* Gives it that wide button shape */
-        border-radius: 70px;      /* Rounds the corners perfectly */
-        border: 2px solid #333;   /* Dark border like the navbar */
-        box-shadow: 0 6px 0px rgba(0,0,0,0.4); /* The "clicky" bottom shadow */
-        margin-bottom: 50px;      /* Space before the burgers start */
+        padding: 15px 60px;
+        border-radius: 70px;
+        border: 2px solid #333;
+        box-shadow: 0 6px 0px rgba(0,0,0,0.4);
+        margin-bottom: 50px;
     }
 
     body {
@@ -116,11 +112,8 @@
       padding-top: 60px;
       padding-bottom: 80px; 
       text-align: center;
-      box-shadow: 
-    inset 0 -140px 150px -80px #093426,
-    inset 0 -40px 40px rgba(0, 0, 0, 0.5);
-}
-    
+      box-shadow: inset 0 -140px 150px -80px #093426, inset 0 -40px 40px rgba(0, 0, 0, 0.5);
+    }
 
     .logo-img {
       max-width: 100%;
@@ -169,95 +162,82 @@
       color: #093426;
     }
 
-    /* CHANGED: This now covers the full width (Blue Line Area) */
     .main-content {
-      max-width: 100%; /* Removes the 800px limit to fill the blue line */
-      margin: 0; /* Touches the edges */
-      background-color: rgba(9, 52, 38, 0.85); /* Semi-transparent green silhouette */
+      max-width: 100%;
+      margin: 0;
+      background-color: rgba(9, 52, 38, 0.85);
       text-align: center;
       padding: 60px 20px;
-      min-height: 600px; /* Ensures the box stays long even if empty */
+      min-height: 600px;
     }
 
-    .product-grid {
+    /* This container ensures items are perfectly centered in a vertical list */
+    .promo-list {
        display: flex;
-       flex-wrap: wrap; /* Allows burgers to move to the next row */
-       justify-content: center;
+       flex-direction: column;
+       align-items: center;
        gap: 30px;
-       max-width: 1200px;
-       margin: 0 auto;
-       padding: 40px 20px;
+       width: 100%;
     }
 
-    .product-item {
-       background-color: rgba(9, 52, 38, 0.95); /* Matches your brand green */
-       border: 2px solid #F6B102; /* Brand yellow border */
+    .promo-item {
+       background-color: rgba(9, 52, 38, 0.95);
+       border: 2px solid #F6B102;
        border-radius: 20px;
-       padding: 20px;
-       width: 280px; /* Fixed width makes them sit horizontally */
+       padding: 15px;
+       width: 90%;
+       max-width: 700px;
        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
        transition: transform 0.3s ease;
        text-align: center;
+       display: flex;
+       flex-direction: column;
+       align-items: center; /* Centers everything inside the box */
     }
 
-    .product-item:hover {
-       transform: translateY(-10px); /* Subtle lift effect */
+    .promo-item:hover {
+       transform: translateY(-10px);
        border-color: white;
     }
 
-    .product-item img {
-       width: 100%;
-       aspect-ratio: 1/1; /* Keeps your square images perfect */
+    .promo-img {
+       width: 100%; /* Changed to 100% to fill the wide box width */
+       height: 200px; /* Adjust this to control how "big" the landscape photo is */
        object-fit: cover;
        border-radius: 15px;
-       margin-bottom: 15px;
+       margin-bottom: 10px;
     }
 
     .price-tag {
-    color: #093426; /* Dark green to match the title */
-    font-family: "Arial Black", sans-serif;
-    font-size: 1.9rem;
-    margin-top: 10px; /* Space between description and price */
-    font-weight: bold;
-} 
+       color: #093426;
+       font-family: "Arial Black", sans-serif;
+       font-size: 1.9rem;
+       margin-top: 10px;
+       font-weight: bold;
+    } 
 
     footer {
-  /* This creates a fade from the side burgers into the solid green footer */
-  background: linear-gradient(to top, #093426 70%, rgba(9, 52, 38, 0) 100%);
-  
-  padding: 20px 1px 1px; /* More top padding makes the fade look longer and smoother */
-  text-align: center;
-  font-size: 0.9em;
-  color: #F7EDD4;
-  margin-top: 30px; /* Adds space after your Mission section before the footer starts */
-  footer .social-links {
-  margin-bottom: 20px;}
-}
+      background: linear-gradient(to top, #093426 70%, rgba(9, 52, 38, 0) 100%);
+      padding: 20px 1px 1px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #F7EDD4;
+      margin-top: 30px;
+    }
 
-footer .social-links p {
-  font-family: Georgia, serif;
-  color: #F7EDD4;
-}
+    footer .social-links { margin-bottom: 20px; }
 
-footer .social-links a {
-  color: #F6B102; /* Match your navbar yellow */
-  text-decoration: none;
-  margin: 0 10px;
-  transition: 0.3s;
-  font-weight: bold;
-}
+    footer .social-links p { font-family: Georgia, serif; color: #F7EDD4; }
 
-footer .social-links a:hover {
-  color: white;
-  text-shadow: 0 0 10px #F6B102;
-}
+    footer .social-links a {
+      color: #F6B102;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: 0.3s;
+      font-weight: bold;
+    }
 
-/* This styles the actual icons */
-footer i {
-  font-size: 1.2rem;
-  vertical-align: middle;
-  margin-right: 5px;
-}
+    footer i { font-size: 1.2rem; vertical-align: middle; margin-right: 5px; }
 
     @media (max-width: 768px) {
       .navbar { max-width: 95%; margin-top: -50px; }
@@ -278,7 +258,7 @@ footer i {
   <nav class="navbar">
     <ul>
       <li><a href="ictweb.html">Home</a></li>
-    <li><a href="promos.html">Promos</a></li>
+      <li><a href="promos.html">Promos</a></li>
       <li><a href="products.html">Products</a></li>
       <li><a href="contact.html">Contacts</a></li>
     </ul>
@@ -286,66 +266,72 @@ footer i {
 </header>
  
   <main class="main-content">
-  <h2 class="section-title-box">OUR PROMOS</h2>
-  
-  <div class="product-grid">
-    <!-- Item 1 -->
-   <div class="product-item">
-    <img src="burger1.png" alt="Classic Burger">
-    <div class="product-info-box">
-        <h3>The Crystal Classic</h3>
-        <p>Double smashed patties and melted cheddar. Simple, clean, and highly addictive.</p> <br>
-        <p class="price-tag">₱ 290.00</p> 
-    </div>    
-    <div class="quantity-selector">
-        <button class="qty-btn" onclick="changeQty(this, -1)">-</button>
-        <div class="qty-number">0</div>
-        <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
-    </div>
-<button class="order-btn" onclick="addtocart(this)" style="background-color: #F6B102; color: #093426; font-family: 'Arial Black'; text-transform: uppercase; border: 2px solid #333; border-radius: 50px; padding: 12px; margin-top: 15px; cursor: pointer; width: 100%; box-shadow: 0 4px 0px rgba(0,0,0,0.3);">
-  Add to Cart
-</button>
-</div>
+  <div class="promo-header-container">
+      <h2 class="section-title-box">OUR PROMOS</h2>
+  </div>
 
-    <!-- Item 2 -->
-    <div class="product-item">
-      <img src="burger2.png" alt="Cheese Burger">
-      <div class="product-info-box">
-      <h3>The Batch One</h3>
-      <p>A thick-cut beef smothered in a heavy dose of liquid cheddar and shredded lettuce.</p> <br>
-      <p class="price-tag">₱ 245.00</p> 
-       </div>
-       <div class="quantity-selector">
-  <button class="qty-btn" onclick="changeQty(this, -1)">-</button>
-  <div class="qty-number">0</div>
-  <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
-</div>
-<button class="order-btn" onclick="addtocart(this)" style="background-color: #F6B102; color: #093426; font-family: 'Arial Black'; text-transform: uppercase; border: 2px solid #333; border-radius: 50px; padding: 12px; margin-top: 15px; cursor: pointer; width: 100%; box-shadow: 0 4px 0px rgba(0,0,0,0.3);">
-  Add to Cart
-</button>
+  <div class="promo-list">
+
+    <div class="promo-item">
+      <img src="pp1.png" alt="Promo Deal 1" class="promo-img">
+      <div class="product-info-box" style="width: 100%; box-sizing: border-box;">
+          <h3>The Pinkman</h3>
+          <p>The Crystal Classic, The Batch One, and The Blue Heat</p> <br>
+          <p class="price-tag">₱ 888.00</p> 
+      </div>    
+      
+      <div class="quantity-selector">
+          <button class="qty-btn" onclick="changeQty(this, -1)">-</button>
+          <div class="qty-number">0</div>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+      </div>
+
+      <button class="order-btn" onclick="addtocart(this)" style="background-color: #F6B102; color: #093426; font-family: 'Arial Black'; text-transform: uppercase; border: 2px solid #333; border-radius: 50px; padding: 12px; margin-top: 15px; cursor: pointer; width: 100%; box-shadow: 0 4px 0px rgba(0,0,0,0.3);">
+        Add to Cart
+      </button>
     </div>
 
-    <!-- Item 3 -->
-    <div class="product-item">
-      <img src="burger3.png" alt="Spicy Burger">
-      <div class="product-info-box">
-      <h3>The Blue Heat</h3>
-      <p>A double patties, stacked pickles, red onions, and our signature "Heisenberg" heat sauce.</p> <br>
-      <p class="price-tag">₱ 360.00</p>
-       </div>
-       <div class="quantity-selector">
-  <button class="qty-btn" onclick="changeQty(this, -1)">-</button>
-  <div class="qty-number">0</div>
-  <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
-</div>
-<button class="order-btn" onclick="addtocart(this)" style="background-color: #F6B102; color: #093426; font-family: 'Arial Black'; text-transform: uppercase; border: 2px solid #333; border-radius: 50px; padding: 12px; margin-top: 15px; cursor: pointer; width: 100%; box-shadow: 0 4px 0px rgba(0,0,0,0.3);">
-  Add to Cart
-</button>
+    <div class="promo-item">
+      <img src="pp2.png" alt="Promo Deal 2" class="promo-img">
+      <div class="product-info-box" style="width: 100%; box-sizing: border-box;">
+          <h3>Mr. White Combo</h3>
+          <p>The Full Measure, The Fried Empire, and The Heisenberg</p> <br>
+          <p class="price-tag">₱ 950.00</p> 
+      </div>    
+      
+      <div class="quantity-selector">
+          <button class="qty-btn" onclick="changeQty(this, -1)">-</button>
+          <div class="qty-number">0</div>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+      </div>
+
+      <button class="order-btn" onclick="addtocart(this)" style="background-color: #F6B102; color: #093426; font-family: 'Arial Black'; text-transform: uppercase; border: 2px solid #333; border-radius: 50px; padding: 12px; margin-top: 15px; cursor: pointer; width: 100%; box-shadow: 0 4px 0px rgba(0,0,0,0.3);">
+        Add to Cart
+      </button>
     </div>
+
+    <div class="promo-item">
+      <img src="pp3.png" alt="Promo Deal 3" class="promo-img">
+      <div class="product-info-box" style="width: 100%; box-sizing: border-box;">
+          <h3>The Heisenberg Special</h3>
+          <p>The Crystal Classic, The Heisenberg, and The Blue Heat</p> <br>
+          <p class="price-tag">₱ 970.00</p> 
+      </div>    
+      
+      <div class="quantity-selector">
+          <button class="qty-btn" onclick="changeQty(this, -1)">-</button>
+          <div class="qty-number">0</div>
+          <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+      </div>
+
+      <button class="order-btn" onclick="addtocart(this)" style="background-color: #F6B102; color: #093426; font-family: 'Arial Black'; text-transform: uppercase; border: 2px solid #333; border-radius: 50px; padding: 12px; margin-top: 15px; cursor: pointer; width: 100%; box-shadow: 0 4px 0px rgba(0,0,0,0.3);">
+        Add to Cart
+      </button>
     </div>
+
+  </div>
 </main>
 
-<!-- Order Summary Modal -->
 <div id="cartModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000;">
   <div style="background:#093426; border:3px solid #F6B102; width:90%; max-width:400px; margin:100px auto; padding:20px; border-radius:20px; color:white; font-family:Arial, sans-serif;">
     <h2 style="color:#F6B102; font-family:'Arial Black'; text-align:center;">YOUR ORDERS</h2>
@@ -353,16 +339,15 @@ footer i {
     
     <button id="printBtn" onclick="printReceipt()" style="width:100%; background:#F7EDD4; color:#093426; border:none; padding:12px; font-family:'Arial Black'; cursor:pointer; border-radius:50px; margin-bottom: 10px;">
     <i class="fa-solid fa-print"></i> PRINT RECEIPT
-</button>
+    </button>
 
-    <!-- This is where the list will appear -->
     <div id="orderList" style="margin:20px 0; max-height:300px; overflow-y:auto;">
       <p style="text-align:center;">Your cart is empty!</p>
     </div>
 
-<button onclick="clearCart()" style="width:100%; background:#e21c21; color:white; border:none; padding:10px; font-family:'Arial Black'; cursor:pointer; border-radius:50px; margin-bottom: 10px;">
-    <i class="fa-solid fa-trash"></i> CLEAR CART
-</button>
+    <button onclick="clearCart()" style="width:100%; background:#e21c21; color:white; border:none; padding:10px; font-family:'Arial Black'; cursor:pointer; border-radius:50px; margin-bottom: 10px;">
+        <i class="fa-solid fa-trash"></i> CLEAR CART
+    </button>
 
     <button onclick="closeCart()" style="width:100%; background:#F6B102; border:none; padding:10px; font-family:'Arial Black'; cursor:pointer; border-radius:50px;">CLOSE</button>
   </div>
@@ -380,16 +365,13 @@ footer i {
 </footer>
 
 <script>
-    // 1. GLOBAL VARIABLES (Only define these once!)
     let orders = [];
     let totalInCart = 0;
 
-    // 2. RUN ON STARTUP
     window.onload = function() {
         loadCart();
     };
 
-    // 3. MEMORY FUNCTIONS
     function saveCart() {
         localStorage.setItem('breakingBunsCart', JSON.stringify(orders));
         localStorage.setItem('breakingBunsTotal', totalInCart);
@@ -411,37 +393,38 @@ footer i {
         }
     }
 
-    // 4. BUTTON FUNCTIONS
-    function addtocart(button) {
-        const productItem = button.closest('.product-item');
-        const burgerName = productItem.querySelector('h3').innerText;
-        const qtyDisplay = productItem.querySelector('.qty-number');
-        const qtyValue = parseInt(qtyDisplay.innerText) || 0;
+   function addtocart(button) {
+    const productItem = button.closest('.promo-item');
+    const burgerName = productItem.querySelector('h3').innerText;
+    const qtyDisplay = productItem.querySelector('.qty-number');
+    const qtyValue = parseInt(qtyDisplay.innerText) || 0;
 
-        if (qtyValue > 0) {
-            totalInCart += qtyValue;
-            
-            let existingOrder = orders.find(item => item.name === burgerName);
-            if (existingOrder) {
-                existingOrder.qty += qtyValue;
-            } else {
-                orders.push({ name: burgerName, qty: qtyValue });
-            }
-
-            // Update badge
-            const badge = document.getElementById('cartBadge');
-            if (badge) {
-                badge.innerText = totalInCart;
-                badge.style.display = 'block';
-            }
-
-            qtyDisplay.innerText = 0;
-            saveCart(); // Saves to browser memory
-            alert(qtyValue + "x " + burgerName + " added to the report!");
+    if (qtyValue > 0) {
+        totalInCart += qtyValue;
+        
+        // We add " (Promo)" to the name here
+        let displayName = burgerName + " (Promo)";
+        
+        let existingOrder = orders.find(item => item.name === displayName);
+        if (existingOrder) {
+            existingOrder.qty += qtyValue;
         } else {
-            alert("Select your dosage (quantity) first!");
+            orders.push({ name: displayName, qty: qtyValue });
         }
+
+        const badge = document.getElementById('cartBadge');
+        if (badge) {
+            badge.innerText = totalInCart;
+            badge.style.display = 'block';
+        }
+
+        qtyDisplay.innerText = 0;
+        saveCart(); 
+        alert(qtyValue + "x " + displayName + " added to the report!");
+    } else {
+        alert("Select your dosage (quantity) first!");
     }
+}
 
     function clearCart() {
         if (confirm("Are you sure you want to clear your lab report?")) {
@@ -480,11 +463,14 @@ footer i {
             printBtn.style.display = 'none';
         } else {
             let html = '<ul style="list-style:none; padding:0;">';
-            orders.forEach(item => {
-                html += `<li style="border-bottom:1px solid rgba(246,177,2,0.2); padding:10px 0; color:white;">
-                            <strong>${item.qty}x</strong> ${item.name}
-                         </li>`;
-            });
+           orders.forEach(item => {
+
+    let highlightedName = item.name.replace("(Promo)", '<span style="font-family: \'Arial Black\', sans-serif; font-size: 0.85rem;">(PROMO)</span>');
+    
+    html += `<li style="border-bottom:1px solid rgba(246,177,2,0.2); padding:10px 0; color:white;">
+                <strong>${item.qty}x</strong> ${highlightedName}
+             </li>`;
+});
             html += '</ul>';
             listDiv.innerHTML = html;
             printBtn.style.display = 'block';
