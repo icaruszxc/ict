@@ -278,7 +278,7 @@ footer i {
   <nav class="navbar">
     <ul>
       <li><a href="ictweb.html">Home</a></li>
-    <li><a href="#">Promos</a></li>
+    <li><a href="promos.html">Promos</a></li>
       <li><a href="products.html">Products</a></li>
       <li><a href="contact.html">Contacts</a></li>
     </ul>
@@ -405,10 +405,18 @@ footer i {
     <h2 style="color:#F6B102; font-family:'Arial Black'; text-align:center;">YOUR ORDERS</h2>
     <hr style="border:1px solid #F6B102;">
     
+    <button id="printBtn" onclick="printReceipt()" style="width:100%; background:#F7EDD4; color:#093426; border:none; padding:12px; font-family:'Arial Black'; cursor:pointer; border-radius:50px; margin-bottom: 10px;">
+    <i class="fa-solid fa-print"></i> PRINT RECEIPT
+</button>
+
     <!-- This is where the list will appear -->
     <div id="orderList" style="margin:20px 0; max-height:300px; overflow-y:auto;">
       <p style="text-align:center;">Your cart is empty!</p>
     </div>
+
+<button onclick="clearCart()" style="width:100%; background:#e21c21; color:white; border:none; padding:10px; font-family:'Arial Black'; cursor:pointer; border-radius:50px; margin-bottom: 10px;">
+    <i class="fa-solid fa-trash"></i> CLEAR CART
+</button>
 
     <button onclick="closeCart()" style="width:100%; background:#F6B102; border:none; padding:10px; font-family:'Arial Black'; cursor:pointer; border-radius:50px;">CLOSE</button>
   </div>
@@ -426,75 +434,127 @@ footer i {
 </footer>
 
 <script>
+    // 1. GLOBAL VARIABLES (Only define these once!)
+    let orders = [];
     let totalInCart = 0;
-let orders = []; // This list stores your burgers
 
-function addtocart(button) {
-    const productItem = button.closest('.product-item');
-    const burgerName = productItem.querySelector('h3').innerText;
-    const qtyValue = parseInt(productItem.querySelector('.qty-number').innerText);
+    // 2. RUN ON STARTUP
+    window.onload = function() {
+        loadCart();
+    };
 
-    if (qtyValue > 0) {
-        totalInCart += qtyValue;
-        
-        // Add to our order list
-        orders.push({ name: burgerName, qty: qtyValue });
-
-        // Update badge
-        const badge = document.getElementById('cartBadge');
-        badge.innerText = totalInCart;
-        badge.style.display = 'flex';
-
-        alert(burgerName + " has been added to your selection!");
-    } else {
-        alert("Please select at least 1 burger!");
+    // 3. MEMORY FUNCTIONS
+    function saveCart() {
+        localStorage.setItem('breakingBunsCart', JSON.stringify(orders));
+        localStorage.setItem('breakingBunsTotal', totalInCart);
     }
-}
 
-function openCart() {
-    const modal = document.getElementById('cartModal');
-    const listDiv = document.getElementById('orderList');
-    modal.style.display = 'block';
+    function loadCart() {
+        const savedOrders = localStorage.getItem('breakingBunsCart');
+        const savedTotal = localStorage.getItem('breakingBunsTotal');
 
-    if (orders.length === 0) {
-        listDiv.innerHTML = '<p style="text-align:center;">Your cart is empty!</p>';
-    } else {
-        // Build the list of text
-        let html = '<ul style="list-style:none; padding:0;">';
-        orders.forEach(item => {
-            html += `<li style="border-bottom:1px solid #333; padding:10px 0;">
-                        <strong>${item.qty}x</strong> ${item.name}
-                     </li>`;
-        });
-        html += '</ul>';
-        listDiv.innerHTML = html;
+        if (savedOrders) {
+            orders = JSON.parse(savedOrders);
+            totalInCart = parseInt(savedTotal) || 0;
+            
+            const badge = document.getElementById('cartBadge');
+            if(badge && totalInCart > 0) {
+                badge.innerText = totalInCart;
+                badge.style.display = 'block';
+            }
+        }
     }
-}
 
-function closeCart() {
-    document.getElementById('cartModal').style.display = 'none';
-}
+    // 4. BUTTON FUNCTIONS
+    function addtocart(button) {
+        const productItem = button.closest('.product-item');
+        const burgerName = productItem.querySelector('h3').innerText;
+        const qtyDisplay = productItem.querySelector('.qty-number');
+        const qtyValue = parseInt(qtyDisplay.innerText) || 0;
 
-  function changeQty(button, change) {
-    // This finds the "qty-number" div sitting right next to the button you clicked
-    const container = button.parentElement;
-    const qtyDisplay = container.querySelector('.qty-number');
-    
-    // Get the current number and turn it into a real number we can add to
-    let currentQty = parseInt(qtyDisplay.innerText);
-    
-    // Calculate the new quantity
-    let newQty = currentQty + change;
-    
-    // Safety check: don't let the quantity go below 0
-    if (newQty < 0) {
-      newQty = 0;
+        if (qtyValue > 0) {
+            totalInCart += qtyValue;
+            
+            let existingOrder = orders.find(item => item.name === burgerName);
+            if (existingOrder) {
+                existingOrder.qty += qtyValue;
+            } else {
+                orders.push({ name: burgerName, qty: qtyValue });
+            }
+
+            // Update badge
+            const badge = document.getElementById('cartBadge');
+            if (badge) {
+                badge.innerText = totalInCart;
+                badge.style.display = 'block';
+            }
+
+            qtyDisplay.innerText = 0;
+            saveCart(); // Saves to browser memory
+            alert(qtyValue + "x " + burgerName + " added to the report!");
+        } else {
+            alert("Select your dosage (quantity) first!");
+        }
     }
-    
-    // Update the text on the screen
-    qtyDisplay.innerText = newQty;
 
-  }
+    function clearCart() {
+        if (confirm("Are you sure you want to clear your lab report?")) {
+            orders = [];
+            totalInCart = 0;
+            saveCart();
+            
+            const badge = document.getElementById('cartBadge');
+            if (badge) {
+                badge.style.display = 'none';
+                badge.innerText = 0;
+            }
+            
+            closeCart();
+            alert("Cart cleared!");
+        }
+    }
+
+    function changeQty(button, change) {
+        const container = button.parentElement;
+        const qtyDisplay = container.querySelector('.qty-number');
+        let currentQty = parseInt(qtyDisplay.innerText) || 0;
+        let newQty = currentQty + change;
+        if (newQty < 0) newQty = 0;
+        qtyDisplay.innerText = newQty;
+    }
+
+    function openCart() {
+        const modal = document.getElementById('cartModal');
+        const listDiv = document.getElementById('orderList');
+        const printBtn = document.getElementById('printBtn');
+        modal.style.display = 'block';
+
+        if (orders.length === 0) {
+            listDiv.innerHTML = '<p style="text-align:center;">Your cart is empty!</p>';
+            printBtn.style.display = 'none';
+        } else {
+             let html = '<ul style="list-style:none; padding:0;">';
+           orders.forEach(item => {
+    // This part checks if the name contains "(Promo)" and colors it yellow
+    let highlightedName = item.name.replace("(Promo)", '<span style="font-family: \'Arial Black\', sans-serif; font-size: 0.85rem;">(PROMO)</span>');
+    
+    html += `<li style="border-bottom:1px solid rgba(246,177,2,0.2); padding:10px 0; color:white;">
+                <strong>${item.qty}x</strong> ${highlightedName}
+             </li>`;
+});
+            html += '</ul>';
+            listDiv.innerHTML = html;
+            printBtn.style.display = 'block';
+        }
+    }
+
+    function closeCart() {
+        document.getElementById('cartModal').style.display = 'none';
+    }
+
+    function printReceipt() {
+        alert("Order Printed!");
+    }
 </script>
 
 </body>
