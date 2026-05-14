@@ -164,6 +164,7 @@
 
     .main-content {
       max-width: 100%;
+      backdrop-filter: blur(10px);
       margin: 0;
       background-color: rgba(9, 52, 38, 0.85);
       text-align: center;
@@ -465,9 +466,9 @@
             let html = '<ul style="list-style:none; padding:0;">';
            orders.forEach(item => {
 
-    let highlightedName = item.name.replace("(Promo)", '<span style="font-family: \'Arial Black\', sans-serif; font-size: 0.85rem;">(PROMO)</span>');
+    let highlightedName = item.name.replace("(Promo)", '<span style="font-family: \'Arial Black\', sans-serif; color:white;  font-size: 0.85rem;">(PROMO)</span>');
     
-    html += `<li style="border-bottom:1px solid rgba(246,177,2,0.2); padding:10px 0; color:white;">
+    html += `<li style="border-bottom:1px solid rgba(246,177,2,0.2); padding:10px 0; color:#F6B102; font-family: 'Arial Black', sans-serif;">
                 <strong>${item.qty}x</strong> ${highlightedName}
              </li>`;
 });
@@ -482,7 +483,7 @@
     }
 
     function printReceipt() {
-        alert("Order Printed!");
+       alert("Order Printed!");
     }
 </script>
 

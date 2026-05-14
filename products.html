@@ -172,6 +172,7 @@
     /* CHANGED: This now covers the full width (Blue Line Area) */
     .main-content {
       max-width: 100%; /* Removes the 800px limit to fill the blue line */
+      backdrop-filter: blur(10px);
       margin: 0; /* Touches the edges */
       background-color: rgba(9, 52, 38, 0.85); /* Semi-transparent green silhouette */
       text-align: center;
@@ -536,9 +537,9 @@ footer i {
              let html = '<ul style="list-style:none; padding:0;">';
            orders.forEach(item => {
     // This part checks if the name contains "(Promo)" and colors it yellow
-    let highlightedName = item.name.replace("(Promo)", '<span style="font-family: \'Arial Black\', sans-serif; font-size: 0.85rem;">(PROMO)</span>');
+    let highlightedName = item.name.replace("(Promo)", '<span style="font-family: \'Arial Black\', sans-serif; color:white;  font-size: 0.85rem;">(PROMO)</span>');
     
-    html += `<li style="border-bottom:1px solid rgba(246,177,2,0.2); padding:10px 0; color:white;">
+    html += `<li style="border-bottom:1px solid rgba(246,177,2,0.2); padding:10px 0; color:#F6B102; font-family: 'Arial Black', sans-serif;">
                 <strong>${item.qty}x</strong> ${highlightedName}
              </li>`;
 });
@@ -553,7 +554,7 @@ footer i {
     }
 
     function printReceipt() {
-        alert("Order Printed!");
+       alert("Order Printed!");
     }
 </script>
 

@@ -33,6 +33,7 @@
 
 .main-content {
   animation: fadeInUp 0.50s ease-out;
+  backdrop-filter: blur(10px);
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
@@ -349,9 +350,9 @@ function openCart() {
          let html = '<ul style="list-style:none; padding:0;">';
            orders.forEach(item => {
     // This part checks if the name contains "(Promo)" and colors it yellow
-      let highlightedName = item.name.replace("(Promo)", '<span style="font-weight: bold; font-size: 0.8rem;">(PROMO)</span>');
+      let highlightedName = item.name.replace("(Promo)", '<span style="font-weight: bold; color:white; font-size: 0.8rem;">(PROMO)</span>');
       
-    html += `<li style="border-bottom:1px solid rgba(246,177,2,0.2); padding:10px 0; color:white;">
+    html += `<li style="border-bottom:1px solid rgba(246,177,2,0.2); padding:10px 0; color:#F6B102; font-family: 'Arial Black', sans-serif;">
                 <strong>${item.qty}x</strong> ${highlightedName}
              </li>`;
 });
