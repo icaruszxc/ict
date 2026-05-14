@@ -13,18 +13,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Add this to your <style> section */
-.tp-item {
-    transition: transform 0.2s;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.tp-item:hover {
-    transform: scale(1.05);
-    background: rgba(246, 177, 2, 0.1); /* Subtle yellow glow */
-}
-
+       
         body {
       animation: fadeInUp 0.50s ease-out;
       margin: 0;
@@ -117,12 +106,6 @@
         box-shadow: 0 6px 0px rgba(0,0,0,0.4); /* The "clicky" bottom shadow */
         margin-bottom: 50px;      /* Space before the burgers start */
     }
-        .contact-box {
-            border: 2px solid #F6B102;
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-        }
 
         /* Cards matching the dark theme */
        .grid {
@@ -204,6 +187,90 @@
             margin-right: 10px;
         }
 
+        .contact-card-hero {
+    background: #F7EDD4; /* Cream background for high contrast */
+    color: #093426;
+    max-width: 750px;
+    margin: 0 auto 40px auto;
+    padding: 20px 30px;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    border-top: 8px solid #F6B102;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card-hero h3 {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.email-link {
+    font-size: 1.5rem;
+    color: #093426;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.email-link:hover {
+    color: #F6B102;
+    transform: scale(1.05);
+}
+
+/* Delivery Support Section */
+.delivery-section {
+    margin-bottom: 50px;
+}
+
+.delivery-grid {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.delivery-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(246, 177, 2, 0.3);
+    padding: 12px 25px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.delivery-btn:hover {
+    background: #F6B102;
+    transform: translateY(-5px);
+    border-color: #F6B102;
+}
+
+.delivery-btn img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+.delivery-btn span {
+    color: white;
+    font-weight: bold;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 14px;
+}
+
+.delivery-btn:hover span {
+    color: #093426;
+}
+
        footer {
       background: linear-gradient(to top, #093426 70%, rgba(9, 52, 38, 0) 100%);
       padding: 20px 1px 1px;
@@ -232,6 +299,8 @@
       .navbar ul { gap: 10px; }
       .navbar a { padding: 8px 15px; font-size: 14px; }
     }
+
+    
     </style>
 </head>
 <body>
@@ -255,28 +324,30 @@
 
 <main class="main-content">
     <div class="promo-header-container">
-      <h2 class="section-title-box">CONTACT US</h2>
-  </div>
-
-    <div class="contact-box">
-        <h3>Contact Details</h3>
-        <p>Questions or feedback? Reach out to us directly:</p>
-        <p style="font-size: 1.2rem; color: #F6B102;">
-            <i class="fa-solid fa-envelope"></i> <strong>feedback@breakingbuns.com.ph</strong>
-        </p>
+        <h2 class="section-title-box">Connect With Us</h2>
     </div>
 
-    <div style="margin-bottom: 30px;">
-        <p>For Grabfood or Foodpanda orders, use these links:</p>
-        <div style="display: flex; justify-content: center; gap: 20px;">
-            <div class="tp-item">
+    <!-- Redesigned Contact Hero -->
+    <div class="contact-card-hero">
+        <h3>Direct Line</h3>
+        <p>Questions or feedback? Our team is standing by.</p>
+        <a href="mailto:feedback@breakingbuns.com.ph" class="email-link">
+            <i class="fa-solid fa-envelope"></i> feedback@breakingbuns.com.ph
+        </a>
+    </div>
+
+    <!-- Delivery Support Section -->
+    <div class="delivery-section">
+        <p style="color: #F7EDD4; opacity: 0.8; font-style: italic;">Ordering via apps? Get specialized support here:</p>
+        <div class="delivery-grid">
+            <a href="#" class="delivery-btn">
                 <img src="grab.jpg" alt="Grab">
-                <a href="#" style="color: #F6B102;">Grab Help</a>
-            </div>
-            <div class="tp-item">
+                <span>GRAB HELP</span>
+            </a>
+            <a href="#" class="delivery-btn">
                 <img src="foodpanda.jpg" alt="FoodPanda">
-                <a href="#" style="color: #F6B102;">Panda Support</a>
-            </div>
+                <span>PANDA SUPPORT</span>
+            </a>
         </div>
     </div>
 
