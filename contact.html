@@ -271,29 +271,43 @@
     color: #093426;
 }
 
-       footer {
-      background: linear-gradient(to top, #093426 70%, rgba(9, 52, 38, 0) 100%);
-      padding: 20px 1px 1px;
-      text-align: center;
-      font-size: 0.9em;
-      color: #F7EDD4;
-      margin-top: 30px;
-    }
+      footer {
+  /* This creates a fade from the side burgers into the solid green footer */
+  background: linear-gradient(to top, #093426 70%, rgba(9, 52, 38, 0) 100%);
+  
+  padding: 20px 1px 1px; /* More top padding makes the fade look longer and smoother */
+  text-align: center;
+  font-size: 0.9em;
+  color: #F7EDD4;
+  margin-top: 30px; /* Adds space after your Mission section before the footer starts */
+  footer .social-links {
+  margin-bottom: 20px;}
+}
 
-    footer .social-links { margin-bottom: 20px; }
+footer .social-links p {
+  font-family: Georgia, serif;
+  color: #F7EDD4;
+}
 
-    footer .social-links p { font-family: Georgia, serif; color: #F7EDD4; }
+footer .social-links a {
+  color: #F6B102; /* Match your navbar yellow */
+  text-decoration: none;
+  margin: 0 10px;
+  transition: 0.3s;
+  font-weight: bold;
+}
 
-    footer .social-links a {
-      color: #F6B102;
-      text-decoration: none;
-      margin: 0 10px;
-      transition: 0.3s;
-      font-weight: bold;
-    }
+footer .social-links a:hover {
+  color: white;
+  text-shadow: 0 0 10px #F6B102;
+}
 
-    footer i { font-size: 1.2rem; vertical-align: middle; margin-right: 5px; }
-
+/* This styles the actual icons */
+footer i {
+  font-size: 1.2rem;
+  vertical-align: middle;
+  margin-right: 5px;
+}
     @media (max-width: 768px) {
       .navbar { max-width: 95%; margin-top: -50px; }
       .navbar ul { gap: 10px; }
@@ -340,11 +354,11 @@
     <div class="delivery-section">
         <p style="color: #F7EDD4; opacity: 0.8; font-style: italic;">Ordering via apps? Get specialized support here:</p>
         <div class="delivery-grid">
-            <a href="#" class="delivery-btn">
+            <a href="https://food.grab.com/ph/en/" class="delivery-btn" target="_blank" rel="noopener noreferrer">
                 <img src="grab.jpg" alt="Grab">
                 <span>GRAB HELP</span>
             </a>
-            <a href="#" class="delivery-btn">
+            <a href="https://www.foodpanda.ph" class="delivery-btn" target="_blank" rel="noopener noreferrer">
                 <img src="foodpanda.jpg" alt="FoodPanda">
                 <span>PANDA SUPPORT</span>
             </a>
@@ -365,7 +379,7 @@
         <i class="fa-solid fa-map-location-dot"></i>
         <h3>Store Directory</h3>
         <p>Find a branch near you.</p>
-        <a href="#" class="green-btn">SEE LIST</a>
+        <a href="https://www.google.com/maps" class="green-btn" target="_blank" rel="noopener noreferrer">SEE LIST</a>
     </div>
 
     <!-- Card 3 -->
@@ -401,9 +415,9 @@
 <footer>
   <div class="social-links">
     <p>Follow us on our: 
-      <a href="#"><i class="fab fa-instagram"></i> Instagram</a>, 
-      <a href="#"><i class="fab fa-facebook"></i> Facebook</a>, 
-      <a href="#"><i class="fab fa-x-twitter"></i> X</a>
+      <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a>, 
+      <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook</a>, 
+      <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i> X</a>
     </p>
   </div>
   <p>&copy; 2026 Breaking Buns. All rights reserved.</p>
